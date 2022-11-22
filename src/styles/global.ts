@@ -13,8 +13,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme["gray-200"]};
+    background: ${(props) => props.theme.background};
     color: ${(props) => props.theme["gray-500"]};
+    -webkit-font-smoothing: antialiased;
   }
 
   body, input, textarea, button {
@@ -22,6 +23,13 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1rem;
     line-height: 130%;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-family: "Baloo 2";
+    line-height: 130%;
+    font-weight: 800;
   }
 
 `;
