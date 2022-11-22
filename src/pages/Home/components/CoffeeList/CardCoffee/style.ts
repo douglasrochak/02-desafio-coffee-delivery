@@ -9,7 +9,6 @@ export const CardCoffeeContainer = styled.div`
 
   max-width: 16rem;
   max-height: 19.375rem;
-  margin-top: 1.25rem;
 
   border-radius: 6px 36px;
   background-color: ${(props) => props.theme["gray-100"]};
