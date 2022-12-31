@@ -6,21 +6,27 @@ import {
   CartButton,
   HeaderContainer,
   HeaderWrapper,
+  Logo,
 } from "./style";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
     <HeaderContainer>
       <HeaderWrapper>
-        <img src={logo} alt="Coffee Delivery logo" />
+        <Link to="/">
+          <Logo src={logo} alt="Coffee Delivery logo" />
+        </Link>
         <AddressContainer>
           <span>
             <MapPin weight="fill" size={22} />
             Porto Alegre, RS
           </span>
-          <CartButton>
-            <ShoppingCart weight="fill" size={22} />
-          </CartButton>
+          <Link to="/checkout">
+            <CartButton>
+              <ShoppingCart weight="fill" size={22} />
+            </CartButton>
+          </Link>
         </AddressContainer>
       </HeaderWrapper>
     </HeaderContainer>

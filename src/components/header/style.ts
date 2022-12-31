@@ -35,6 +35,11 @@ export const AddressContainer = styled.div`
     }
   }
 `;
+export const Logo = styled.img`
+  &:focus {
+    box-shadow: none;
+  }
+`;
 
 export const CartButton = styled.button`
   background-color: ${(props) => props.theme["yellow-100"]};

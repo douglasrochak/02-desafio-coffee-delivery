@@ -1,8 +1,11 @@
-import { BuyInputBox, CardCoffeeContainer, Tags } from "./style";
+import { BuyInputBox, CardCoffeeContainer, Price, Tags } from "./style";
 import { ShoppingCart } from "phosphor-react";
-import { CoffeeType } from "../../../../../coffee-data";
+import { CoffeeItem } from "../../../../../coffee-data";
+import { NumberInput } from "../../../../../components/NumberInput";
+import { useContext } from "react";
+import { CartContext } from "../../../../../contexts/CartContextProvider";
 
-interface CardCoffeeProps extends CoffeeType {}
+interface CardCoffeeProps extends CoffeeItem {}
 
 export function CardCoffee({
   id,
@@ -12,7 +15,12 @@ export function CardCoffee({
   tags,
   price,
 }: CardCoffeeProps) {
-  console.log(name, tags);
+  const { addToCart } = useContext(CartContext);
+
+  function addItemToCart() {
+    addToCart(id, 1);
+  }
+
   return (
     <CardCoffeeContainer>
       <img src={image} alt="" />
@@ -24,9 +32,9 @@ export function CardCoffee({
       <strong>{name}</strong>
       <p>{description}</p>
       <BuyInputBox>
-        <span>{price}</span>
-        <input min={1} type="number" />
-        <button>
+        <Price>{price}</Price>
+        <NumberInput />
+        <button onClick={addItemToCart} type="button">
           <ShoppingCart weight="fill" size={22} />
         </button>
       </BuyInputBox>

@@ -15,7 +15,7 @@ import havaianoImage from "./assets/coffee-images/havaiano.png";
 import arabeImage from "./assets/coffee-images/arabe.png";
 import irlandesImage from "./assets/coffee-images/irlandes.png";
 
-export interface CoffeeType {
+export interface CoffeeItem {
   id: string;
   image: string;
   name: string;
@@ -26,7 +26,7 @@ export interface CoffeeType {
 
 const randomPrice = () => Number(Math.floor(Math.random() * (9 - 0))) + ",99";
 
-export const coffeeData: CoffeeType[] = [
+export const coffeeData: CoffeeItem[] = [
   {
     id: uuidv4(),
     image: expressoTradicionalImage,

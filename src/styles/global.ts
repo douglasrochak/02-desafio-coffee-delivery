@@ -7,6 +7,14 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   }
 
+  a {
+    font-size: 0;
+    line-height: 0;
+    &:focus {
+    box-shadow: none;
+    }
+  }
+
   :focus {
     outline: 0;
     box-shadow: 0 0 0 2px ${(props) => props.theme["yellow-900"]};
