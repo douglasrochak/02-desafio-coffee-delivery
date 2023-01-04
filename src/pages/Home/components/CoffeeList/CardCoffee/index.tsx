@@ -2,7 +2,7 @@ import { BuyInputBox, CardCoffeeContainer, Price, Tags } from "./style";
 import { ShoppingCart } from "phosphor-react";
 import { CoffeeItem } from "../../../../../coffee-data";
 import { NumberInput } from "../../../../../components/NumberInput";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../../../../contexts/CartContextProvider";
 
 interface CardCoffeeProps extends CoffeeItem {}
@@ -17,8 +17,18 @@ export function CardCoffee({
 }: CardCoffeeProps) {
   const { addToCart } = useContext(CartContext);
 
-  function addItemToCart() {
-    addToCart(id, 1);
+  const [quantity, setQuantity] = useState(1);
+
+  function quantityIncrease() {
+    setQuantity(quantity + 1);
+  }
+  function quantityDecrease() {
+    if (quantity <= 1) return;
+    setQuantity(quantity - 1);
+  }
+
+  function handleAddItemToCart() {
+    addToCart(id, quantity);
   }
 
   return (
@@ -33,8 +43,12 @@ export function CardCoffee({
       <p>{description}</p>
       <BuyInputBox>
         <Price>{price}</Price>
-        <NumberInput />
-        <button onClick={addItemToCart} type="button">
+        <NumberInput
+          quantity={quantity}
+          quantityIncrease={quantityIncrease}
+          quantityDecrease={quantityDecrease}
+        />
+        <button onClick={handleAddItemToCart} type="button">
           <ShoppingCart weight="fill" size={22} />
         </button>
       </BuyInputBox>
