@@ -12,7 +12,7 @@ export const CheckoutContainer = styled.div`
   }
 
   .paymentOptions {
-    grid-column: 1/2;
+    margin-top: 0.75rem;
   }
   .cartAndOrderConfirm {
     grid-row: 1;

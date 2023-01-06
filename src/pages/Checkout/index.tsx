@@ -8,10 +8,11 @@ export function Checkout() {
     <CheckoutContainer>
       <div className="addressForm">
         <AddressForm />
+        <div className="paymentOptions">
+          <PaymentOptions />
+        </div>
       </div>
-      <div className="paymentOptions">
-        <PaymentOptions />
-      </div>
+
       <div className="cartAndOrderConfirm">
         <CartAndOrderConfirm />
       </div>
