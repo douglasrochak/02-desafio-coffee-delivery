@@ -1,13 +1,20 @@
-import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContextProvider";
+import { AddressForm } from "./components/AddressForm";
+import { CartAndOrderConfirm } from "./components/CartAndOrderConfirm";
+import { PaymentOptions } from "./components/PaymentOptions";
 import { CheckoutContainer } from "./style";
 
 export function Checkout() {
-  const { cartItems } = useContext(CartContext);
   return (
     <CheckoutContainer>
-      <p>Pagina de Checkout</p>
-      <div>{JSON.stringify(cartItems, null, 0)}</div>
+      <div className="addressForm">
+        <AddressForm />
+      </div>
+      <div className="paymentOptions">
+        <PaymentOptions />
+      </div>
+      <div className="cartAndOrderConfirm">
+        <CartAndOrderConfirm />
+      </div>
     </CheckoutContainer>
   );
 }

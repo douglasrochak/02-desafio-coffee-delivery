@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: calc(75rem + 4rem);
+  max-width: calc(70rem + 4rem);
   margin: 0 auto;
   padding: 2rem 2rem;
 `;

@@ -11,11 +11,11 @@ export const NumberInputContainer = styled.div`
   background-color: ${({ theme }) => theme["gray-300"]};
 
   svg {
-    color: ${({ theme }) => theme["purple-500"]};
+    color: ${({ theme }) => theme["purple-900"]};
 
     &:hover {
       cursor: pointer;
-      color: ${({ theme }) => theme["purple-900"]};
+      color: ${({ theme }) => theme["purple-500"]};
       transition: color 0.3s;
     }
   }

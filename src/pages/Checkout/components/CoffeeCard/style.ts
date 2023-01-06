@@ -5,7 +5,7 @@ export const CoffeeCardContainer = styled.div`
   align-items: flex-start;
 
   img {
-    width: 5.25rem;
+    width: 4rem;
     margin-right: 1.25rem;
   }
 `;
@@ -13,10 +13,12 @@ export const CoffeeCardContainer = styled.div`
 export const Title = styled.span`
   line-height: 130%;
   margin-bottom: 0.5rem;
+  display: block;
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  max-height: 2rem;
   gap: 0.5rem;
 `;
 
