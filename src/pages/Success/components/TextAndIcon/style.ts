@@ -6,10 +6,11 @@ export const TextAndIconContainer = styled.div`
 `;
 
 export const Icon = styled.div`
+  background: ${(props) => props.theme[props.color]};
+
   width: 2rem;
   height: 2rem;
   border-radius: 100px;
-  background: red;
   display: flex;
   align-items: center;
   justify-content: center;
