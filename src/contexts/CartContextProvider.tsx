@@ -43,7 +43,21 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(newCart);
   }
 
-  function removeFromCart(itemID: string) {}
+  function removeFromCart(itemID: string) {
+    const isItemInTheCart = cartItems.findIndex(
+      (cartItem) => cartItem.id === itemID
+    );
+
+    if (isItemInTheCart < 0) {
+      return;
+    }
+
+    const newCart = produce(cartItems, (draft) => {
+      draft.splice(isItemInTheCart, 1);
+    });
+
+    setCartItems(newCart);
+  }
 
   return (
     <CartContext.Provider

@@ -1,6 +1,7 @@
 import { Trash } from "phosphor-react";
-import { useState } from "react";
+import { useContext } from "react";
 import { NumberInput } from "../../../../components/NumberInput";
+import { CartContext } from "../../../../contexts/CartContextProvider";
 import {
   ButtonRemove,
   ButtonWrapper,
@@ -10,6 +11,7 @@ import {
 } from "./style";
 
 interface CoffeeCardProps {
+  coffeeID: string;
   coffeeImg: string;
   coffeeName: string;
   coffeePrice: string;
@@ -17,11 +19,28 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({
+  coffeeID,
   coffeeImg,
   coffeeName,
   coffeePrice,
   quantity,
 }: CoffeeCardProps) {
+  const { addToCart, removeFromCart } = useContext(CartContext);
+
+  function handleQuantityIncrease() {
+    addToCart(coffeeID, 1);
+  }
+  function handleQuantityDecrease() {
+    if (quantity <= 1) {
+      return;
+    }
+    addToCart(coffeeID, -1);
+  }
+
+  function handleRemoveFromCart() {
+    removeFromCart(coffeeID);
+  }
+
   return (
     <CoffeeCardContainer>
       <img src={coffeeImg} alt="" />
@@ -31,10 +50,10 @@ export function CoffeeCard({
           {" "}
           <NumberInput
             quantity={quantity}
-            // quantityIncrease={}
-            // quantityDecrease={}
+            quantityIncrease={handleQuantityIncrease}
+            quantityDecrease={handleQuantityDecrease}
           />
-          <ButtonRemove>
+          <ButtonRemove type="button" onClick={handleRemoveFromCart}>
             <Trash size={16} />
             Remover
           </ButtonRemove>

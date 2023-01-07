@@ -33,6 +33,11 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 130%;
   }
 
+  button {
+    border: none;
+    cursor: pointer;
+  }
+
   h2 {
     font-size: 2rem;
     font-family: "Baloo 2";

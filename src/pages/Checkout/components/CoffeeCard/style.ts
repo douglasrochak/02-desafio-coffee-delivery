@@ -22,7 +22,7 @@ export const ButtonWrapper = styled.div`
   gap: 0.5rem;
 `;
 
-export const ButtonRemove = styled.div`
+export const ButtonRemove = styled.button`
   display: flex;
   align-items: center;
   gap: 0.25rem;

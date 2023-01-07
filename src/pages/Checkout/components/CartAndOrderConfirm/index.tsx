@@ -11,6 +11,7 @@ export function CartAndOrderConfirm() {
       {cartItems.map((cartItem) => (
         <CoffeeCard
           key={cartItem.id}
+          coffeeID={cartItem.id}
           coffeeImg={cartItem.image}
           coffeeName={cartItem.name}
           coffeePrice={cartItem.price}

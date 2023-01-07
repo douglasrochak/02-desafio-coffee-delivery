@@ -1,8 +1,10 @@
 import { AddressFormContainer, Input, InputWrapper } from "./style";
 import { MapPinLine } from "phosphor-react";
 import { SectionTitle } from "../SectionTitle";
+import { useForm } from "react-hook-form";
 
 export function AddressForm() {
+  const { register } = useForm();
   return (
     <AddressFormContainer>
       <SectionTitle
@@ -12,13 +14,13 @@ export function AddressForm() {
         subtitle="Informe o endereço onde deseja receber seu pedido"
       />
       <InputWrapper>
-        <Input placeholder="CEP" className="cep" />
-        <Input placeholder="Rua" className="street" />
-        <Input placeholder="Número" className="number" />
-        <Input placeholder="Complemento" className="complement" />
-        <Input placeholder="Bairro" className="district" />
-        <Input placeholder="Cidade" className="city" />
-        <Input placeholder="UF" className="uf" />
+        <Input {...register} required placeholder="CEP" className="cep" />
+        <Input {...register} placeholder="Rua" className="street" />
+        <Input {...register} placeholder="Número" className="number" />
+        <Input {...register} placeholder="Complemento" className="complement" />
+        <Input {...register} placeholder="Bairro" className="district" />
+        <Input {...register} placeholder="Cidade" className="city" />
+        <Input {...register} placeholder="UF" className="uf" />
       </InputWrapper>
     </AddressFormContainer>
   );
