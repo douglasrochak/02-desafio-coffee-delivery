@@ -1,8 +1,17 @@
 import { SectionTitle } from "../SectionTitle";
 import { InputWrapper, PaymentInput, PaymentOptionsContainer } from "./style";
 import { CurrencyDollar, CreditCard, Bank, Money } from "phosphor-react";
+import { useFormContext } from "react-hook-form";
+import { InputHTMLAttributes } from "react";
+import { Error } from "../AddressForm/Input/style";
 
-export function PaymentOptions() {
+type PaymentOptionsProps = InputHTMLAttributes<HTMLInputElement> & {
+  error?: string;
+};
+
+export function PaymentOptions({ error }: PaymentOptionsProps) {
+  const { register } = useFormContext();
+
   return (
     <PaymentOptionsContainer>
       <SectionTitle
@@ -11,18 +20,43 @@ export function PaymentOptions() {
         title="Pagamento"
         subtitle="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
       />
+      {error && <Error>{error}</Error>}
       <InputWrapper>
         <PaymentInput>
-          <CreditCard size={16} />
-          <span>Cartão de crédito</span>
+          <input
+            value="Cartão de crédito"
+            id="creditCard"
+            type="radio"
+            {...register("paymentOption")}
+          />
+          <label htmlFor="creditCard">
+            <CreditCard size={16} />
+            Cartão de crédito
+          </label>
         </PaymentInput>
+
         <PaymentInput>
-          <Bank size={16} />
-          <span>Cartão de débito</span>
+          <input
+            value="Cartão de débito"
+            id="debitCard"
+            type="radio"
+            {...register("paymentOption")}
+          />
+          <label htmlFor="debitCard">
+            <Bank size={16} /> Cartão de débito
+          </label>
         </PaymentInput>
+
         <PaymentInput>
-          <Money size={16} />
-          <span>Dinheiro</span>
+          <input
+            value="Dinheiro"
+            id="money"
+            type="radio"
+            {...register("paymentOption")}
+          />
+          <label htmlFor="money">
+            <Money size={16} /> Dinheiro
+          </label>
         </PaymentInput>
       </InputWrapper>
     </PaymentOptionsContainer>

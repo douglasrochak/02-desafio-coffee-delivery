@@ -1,10 +1,16 @@
-import { AddressFormContainer, Input, InputWrapper } from "./style";
+import { AddressFormContainer, InputWrapper } from "./style";
 import { MapPinLine } from "phosphor-react";
 import { SectionTitle } from "../SectionTitle";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
+import { Input } from "./Input";
+import { AddressFormData } from "../..";
 
 export function AddressForm() {
-  const { register } = useForm();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<AddressFormData>();
+
   return (
     <AddressFormContainer>
       <SectionTitle
@@ -14,13 +20,48 @@ export function AddressForm() {
         subtitle="Informe o endereço onde deseja receber seu pedido"
       />
       <InputWrapper>
-        <Input {...register} required placeholder="CEP" className="cep" />
-        <Input {...register} placeholder="Rua" className="street" />
-        <Input {...register} placeholder="Número" className="number" />
-        <Input {...register} placeholder="Complemento" className="complement" />
-        <Input {...register} placeholder="Bairro" className="district" />
-        <Input {...register} placeholder="Cidade" className="city" />
-        <Input {...register} placeholder="UF" className="uf" />
+        <Input
+          error={errors.cep?.message}
+          className="cep"
+          placeholder="CEP"
+          {...register("cep")}
+        />
+        <Input
+          error={errors.street?.message}
+          className="street"
+          placeholder="Rua"
+          {...register("street")}
+        />
+        <Input
+          error={errors.number?.message}
+          className="number"
+          placeholder="Número"
+          {...register("number")}
+        />
+        <Input
+          error={errors.complement?.message}
+          className="complement"
+          placeholder="Complemento"
+          {...register("complement")}
+        />
+        <Input
+          error={errors.district?.message}
+          className="district"
+          placeholder="Bairro"
+          {...register("district")}
+        />
+        <Input
+          error={errors.city?.message}
+          className="city"
+          placeholder="Cidade"
+          {...register("city")}
+        />
+        <Input
+          error={errors.uf?.message}
+          className="uf"
+          placeholder="UF"
+          {...register("uf")}
+        />
       </InputWrapper>
     </AddressFormContainer>
   );

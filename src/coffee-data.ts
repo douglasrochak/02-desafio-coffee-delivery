@@ -21,10 +21,10 @@ export interface CoffeeItem {
   name: string;
   description: string;
   tags: string[];
-  price: string;
+  price: number;
 }
 
-const randomPrice = () => Number(Math.floor(Math.random() * (9 - 0))) + ",99";
+const randomPrice = () => Number(Math.floor(Math.random() * (9 - 0))) + 0.9;
 
 export const coffeeData: CoffeeItem[] = [
   {

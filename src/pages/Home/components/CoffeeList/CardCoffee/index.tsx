@@ -4,6 +4,7 @@ import { CoffeeItem } from "../../../../../coffee-data";
 import { NumberInput } from "../../../../../components/NumberInput";
 import { useContext, useState } from "react";
 import { CartContext } from "../../../../../contexts/CartContextProvider";
+import { PriceText } from "../../../../../components/PriceText";
 
 interface CardCoffeeProps extends CoffeeItem {}
 
@@ -42,7 +43,9 @@ export function CardCoffee({
       <strong>{name}</strong>
       <p>{description}</p>
       <BuyInputBox>
-        <Price>{price}</Price>
+        <Price>
+          <PriceText priceNumber={price} />
+        </Price>
         <NumberInput
           quantity={quantity}
           quantityIncrease={quantityIncrease}

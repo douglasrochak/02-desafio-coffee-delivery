@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../../../contexts/CartContextProvider";
-import { CoffeeCard } from "../CoffeeCard";
-import { OrderConfirm } from "../OrderConfirm";
+import { CoffeeCard } from "./CoffeeCard";
+import { OrderConfirm } from "./OrderConfirm";
 import { CartAndOrderConfirmContainer } from "./style";
 
 export function CartAndOrderConfirm() {

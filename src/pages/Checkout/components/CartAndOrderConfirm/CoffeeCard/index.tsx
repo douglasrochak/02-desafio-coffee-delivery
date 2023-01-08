@@ -1,7 +1,8 @@
 import { Trash } from "phosphor-react";
 import { useContext } from "react";
-import { NumberInput } from "../../../../components/NumberInput";
-import { CartContext } from "../../../../contexts/CartContextProvider";
+import { NumberInput } from "../../../../../components/NumberInput";
+import { PriceText } from "../../../../../components/PriceText";
+import { CartContext } from "../../../../../contexts/CartContextProvider";
 import {
   ButtonRemove,
   ButtonWrapper,
@@ -14,7 +15,7 @@ interface CoffeeCardProps {
   coffeeID: string;
   coffeeImg: string;
   coffeeName: string;
-  coffeePrice: string;
+  coffeePrice: number;
   quantity: number;
 }
 
@@ -59,7 +60,9 @@ export function CoffeeCard({
           </ButtonRemove>
         </ButtonWrapper>
       </div>
-      <Price>R$ {coffeePrice}</Price>
+      <Price>
+        R$ <PriceText priceNumber={coffeePrice} />
+      </Price>
     </CoffeeCardContainer>
   );
 }

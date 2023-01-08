@@ -3,7 +3,22 @@ import { AddressContainer } from "./style";
 
 import { MapPin, Clock, CurrencyDollar } from "phosphor-react";
 
-export function Address() {
+interface AddressProps {
+  street: string;
+  number: string;
+  city: string;
+  district: string;
+  uf: string;
+  paymentOption: string;
+}
+export function Address({
+  street,
+  number,
+  city,
+  district,
+  uf,
+  paymentOption,
+}: AddressProps) {
   return (
     <AddressContainer>
       <TextAndIcon
@@ -11,10 +26,13 @@ export function Address() {
         color="purple-500"
         text={
           <p>
-            Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+            Entrega em{" "}
+            <strong>
+              {street}, {number}
+            </strong>
           </p>
         }
-        subText="Farrapos - Porto Alegre, RS"
+        subText={`${district} - ${city}, ${uf}`}
       />
       <TextAndIcon
         color="yellow-500"
@@ -26,7 +44,7 @@ export function Address() {
         color="yellow-900"
         icon={<CurrencyDollar weight="fill" size={16} />}
         text="Pagamento na entrega"
-        subText={<strong>Cartão de Crédito</strong>}
+        subText={<strong>{paymentOption}</strong>}
       />
     </AddressContainer>
   );

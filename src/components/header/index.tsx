@@ -9,8 +9,19 @@ import {
   Logo,
 } from "./style";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContextProvider";
 
 export function Header() {
+  const { cartItems } = useContext(CartContext);
+
+  const totalItemsInCart = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  const isCartEmpty = !!totalItemsInCart;
+
   return (
     <HeaderContainer>
       <HeaderWrapper>
@@ -24,6 +35,7 @@ export function Header() {
           </span>
           <Link to="/checkout">
             <CartButton>
+              {isCartEmpty && <div>{totalItemsInCart}</div>}
               <ShoppingCart weight="fill" size={22} />
             </CartButton>
           </Link>

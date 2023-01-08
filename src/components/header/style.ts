@@ -42,6 +42,7 @@ export const Logo = styled.img`
 `;
 
 export const CartButton = styled.button`
+  position: relative;
   background-color: ${(props) => props.theme["yellow-100"]};
   border-radius: 6px;
   border: none;
@@ -49,6 +50,22 @@ export const CartButton = styled.button`
   padding: 0.5rem;
 
   height: 38px;
+
+  div {
+    position: absolute;
+    top: -8px;
+    right: -8.35px;
+
+    background-color: ${({ theme }) => theme["yellow-900"]};
+    color: ${({ theme }) => theme.white};
+    border-radius: 99px;
+    width: 1.25rem;
+    height: 1.25rem;
+
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-align: center;
+  }
 
   &:hover {
     cursor: pointer;
