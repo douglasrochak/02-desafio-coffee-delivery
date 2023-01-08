@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { coffeeData, CoffeeItem } from "../coffee-data";
 import { produce } from "immer";
 interface CartItem extends CoffeeItem {
@@ -19,7 +19,17 @@ interface CartContextProviderProps {
 }
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedStateAsJSON = localStorage.getItem(
+      "@ignite-coffee-deliver:cart-state-1.0.0"
+    );
+
+    if (storedStateAsJSON) {
+      return JSON.parse(storedStateAsJSON);
+    }
+
+    return [];
+  });
 
   function addToCart(itemID: string, quantity: number) {
     const newCartItem = coffeeData.find(
@@ -63,6 +73,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   function clearCart() {
     setCartItems([]);
   }
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cartItems);
+
+    localStorage.setItem("@ignite-coffee-deliver:cart-state-1.0.0", stateJSON);
+  }, [cartItems]);
 
   return (
     <CartContext.Provider
