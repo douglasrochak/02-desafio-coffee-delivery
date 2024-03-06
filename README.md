@@ -37,7 +37,3 @@ $ npm run dev
 $ npm run build
 $ npm run lint
 ```
-
-## License
-
-Esse projeto está sob a [licença MIT](LICENSE.md).
