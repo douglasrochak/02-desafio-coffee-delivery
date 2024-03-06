@@ -29,7 +29,9 @@ $ npm install
 2. Comandos
 
 ```bash
+# Iniciar o projeto
 $ npm run dev
+
 $ npm run build
 $ npm run lint
 ```
