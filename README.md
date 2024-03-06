@@ -1,6 +1,6 @@
-<p align="center">
-<img src=".github/coffee-delivery-demo.jpeg" alt="Demo Screenshot" width="100" />
-</p>
+<h2 align="center">
+  <img src=".github/coffee-delivery-demo.jpeg" alt="Demo Screenshot" />
+</h2>
 
 ## Sobre o Projeto
 
