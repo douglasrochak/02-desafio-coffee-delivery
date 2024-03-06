@@ -1,5 +1,5 @@
 <p align="center">
-<img src=".github/coffee-delivery-demo.jpg" alt="Demo Screenshot" width="100" />
+<img src=".github/coffee-delivery-demo.jpeg" alt="Demo Screenshot" width="100" />
 </p>
 
 ## Sobre o Projeto
