@@ -93,16 +93,17 @@ export const BuyInputBox = styled.div`
 `;
 
 export const Price = styled.span`
-    font-family: "Baloo 2";
-    font-weight: 800;
-    font-size: 1.5rem;
-    line-height: 130%;
+  font-family: "Baloo 2";
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 130%;
 
-    &::before {
-      content: "R$ ";
-      width: 67px;
-      font-family: "Roboto";
-      font-weight: 400;
-      font-size: 0.875rem;
-      line-height: 130%;
-    }`
+  &::before {
+    content: "R$ ";
+    width: 67px;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 130%;
+  }
+`;

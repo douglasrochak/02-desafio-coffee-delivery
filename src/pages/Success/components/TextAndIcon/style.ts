@@ -6,7 +6,8 @@ export const TextAndIconContainer = styled.div`
 `;
 
 export const Icon = styled.div`
-  background: ${(props) => props.theme[props.color]};
+  background: ${(props) =>
+    props.theme[props.color as keyof typeof props.theme]};
 
   width: 2rem;
   height: 2rem;
