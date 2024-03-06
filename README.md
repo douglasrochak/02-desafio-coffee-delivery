@@ -23,7 +23,7 @@ Lista de tecnologias utilizadas no projeto:
 1. Clone o repositório e instale as dedependências:
 
 ```bash
-$ git clone https://github.com/transformacaodev/bitcent
+$ git clone https://github.com/douglasrochak/coffee-delivery-app.git
 $ cd coffee-delivery
 $ npm install
 ```
